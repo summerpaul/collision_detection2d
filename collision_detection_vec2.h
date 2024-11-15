@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 13:51:36
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-15 15:12:58
+ * @Last Modified time: 2024-11-15 21:27:11
  */
 
 #ifndef __COLLISION_DETECTION_VEC2_H__
@@ -374,6 +374,7 @@ extern "C"
         CD_F32 dx = a->x - b->x;
         CD_F32 dy = a->y - b->y;
         *result = sqrtf(dx * dx + dy * dy);
+        return ret;
     }
 
     /**
