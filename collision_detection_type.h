@@ -2,13 +2,13 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 11:09:22
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-13 13:59:22
+ * @Last Modified time: 2024-11-15 16:53:15
  */
 
 #ifndef __COLLISION_DETECTION_TYPE_H__
 #define __COLLISION_DETECTION_TYPE_H__
 #include "collision_detection_base.h"
-#include <math.h>
+
 
 #define COLLISION_DETECTION_VERSION 24111313 // 当前版本号
 

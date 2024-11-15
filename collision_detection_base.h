@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 11:10:38
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-13 14:00:15
+ * @Last Modified time: 2024-11-15 11:16:43
  */
 
 #ifndef __COLLISION_DETECTION_BASE_H__
@@ -96,45 +96,7 @@ typedef unsigned long long CD_U64;
 #define CD_E_D (2.71828182845904523536)     // e
 #define CD_RE_D (0.36787944117144232159)    // 1/e
 
-#define CD_ANG2RAD(x) ((x) * 0.017453293f)
-#define CD_RAD2ANG(x) ((x) * 57.29578f)
 
-#define CD_ANG2RAD_D(x) ((x) * 0.0174532925199433)
-#define CD_RAD2ANG_D(x) ((x) * 57.29577951308233)
-
-#define CD_M2MM(x) ((CD_S32)((x) * 1000))
-#define CD_MM2M(x) ((x) * 0.001f)
-
-#define CD_S2MS(x) ((CD_S32)((x) * 1000))
-#define CD_MS2S(x) ((x) * 0.001f)
-
-#define CD_RAD2MRAD(x) ((CD_S32)((x) * 1000))
-#define CD_MRAD2RAD(x) ((x) * 0.001f)
-
-#define CD_KPH2MPS(x) ((x) * 0.27778f)
-#define CD_MPS2KPH(x) ((x) * 3.6f)
-
-#define CD_MUL_THO(x) ((CD_S32)((x) * 1000))
-#define CD_DIV_THO(x) ((x) * 0.001f)
-
-#define CD_POW_2_31 (2147483648) /
-#define CD_LL_D2I(ll) ((CD_S32)((ll > (180 - CD_EPS_D) ? (180 - CD_EPS_D) : ll) * CD_POW_2_31 / 180))
-#define CD_LL_I2D(ll) ((CD_F64)ll * 180 / CD_POW_2_31)
-
-#define CD_ABS(x) (((CD_S32)(x) < 0) ? (-(CD_S32)(x)) : (CD_S32)(x))
-#define CD_IABS(x) (((CD_S32)(x) < 0) ? (-(CD_S32)(x)) : (CD_S32)(x))
-#define CD_CABS(x) (((CD_S08)(x) < 0) ? (-(CD_S08)(x)) : (CD_S08)(x))
-#define CD_SABS(x) (((CD_S16)(x) < 0) ? (-(CD_S16)(x)) : (CD_S16)(x))
-#define CD_LABS(x) (((CD_S64)(x) < 0) ? (-(CD_S64)(x)) : (CD_S64)(x))
-#define CD_FABS(x) (((CD_F32)(x) < 0) ? (-(CD_F32)(x)) : (CD_F32)(x))
-#define CD_DABS(x) (((CD_F64)(x) < 0) ? (-(CD_F64)(x)) : (CD_F64)(x))
-
-#define CD_SQUARE(x) ((x) * (x))
-
-#define CD_MAX(a, b) (((a) > (b)) ? (a) : (b))
-#define CD_MIN(a, b) (((a) < (b)) ? (a) : (b))
-
-#define CD_CLIP(x, mini, maxi) CD_MIN(CD_MAX(x, mini), maxi)
 
 #ifdef __cplusplus
 }

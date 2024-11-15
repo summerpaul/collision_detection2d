@@ -2,13 +2,14 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 13:51:36
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-13 15:53:38
+ * @Last Modified time: 2024-11-15 15:12:58
  */
 
 #ifndef __COLLISION_DETECTION_VEC2_H__
 #define __COLLISION_DETECTION_VEC2_H__
 
 #include "collision_detection_type.h"
+#include "collision_detection_math.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -390,6 +391,7 @@ extern "C"
         CD_F32 dx = a->x - b->x;
         CD_F32 dy = a->y - b->y;
         *result = dx * dx + dy * dy;
+        return ret;
     }
 
     /**

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 15:20:49
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-14 19:37:47
+ * @Last Modified time: 2024-11-15 11:18:00
  */
 
 #ifndef __COLLISION_DETECTION_TRANSFORM_H__
@@ -215,44 +215,7 @@ extern "C"
         return ret;
     }
 
-    /**
-     * @brief  [-2*pi, 2*pi] 归一化到 [-pi, pi]
-     * @param angle
-     * @return 归一化的角度
-     */
-    CD_INLINE CD_F32 cd_unwind_anglle(CD_F32 angle)
-    {
-        if (angle < -CD_PI)
-        {
-            return angle + 2.0f * CD_PI;
-        }
-        else if (angle > CD_PI)
-        {
-            return angle - 2.0f * CD_PI;
-        }
 
-        return angle;
-    }
-
-    /**
-     * @brief  任意角度归一化到  [-pi, pi]
-     * @param angle
-     * @return 归一化的角度
-     */
-    CD_INLINE CD_F32 cd_unwind_large_anglle(CD_F32 angle)
-    {
-        while (angle > CD_PI)
-        {
-            angle -= 2.0f * CD_PI;
-        }
-
-        while (angle < -CD_PI)
-        {
-            angle += 2.0f * CD_PI;
-        }
-
-        return angle;
-    }
 
     /**
      * @brief 旋转一个向量
