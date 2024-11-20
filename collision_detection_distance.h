@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-19 13:35:45
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-19 14:23:47
+ * @Last Modified time: 2024-11-20 22:36:48
  */
 #include <stdint.h>
 
@@ -110,6 +110,7 @@ extern "C"
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(cache == CD_NULL || input == CD_NULL || simplexes == CD_NULL || output == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
+        return ret;
     }
 
 #ifdef __cplusplus

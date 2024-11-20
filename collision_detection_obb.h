@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-15 11:06:54
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-20 19:57:20
+ * @Last Modified time: 2024-11-20 22:35:41
  */
 
 #ifndef __COLLISION_DETECTION_OBB_H__
@@ -35,7 +35,7 @@ extern "C"
         result->length = length;
         result->width = width;
         ret = cd_rot_from_angle(&result->q, heading);
-        CD_CHECK_RET(ret);
+        CD_CHECK_ERROR(ret != CD_RET_OK, ret);
         return ret;
     }
 

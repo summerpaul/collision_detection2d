@@ -2,14 +2,14 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-15 11:07:44
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-19 14:19:39
+ * @Last Modified time: 2024-11-20 22:37:00
  */
 
 #ifndef __COLLISION_DETECTION_POLYGON_H__
 #define __COLLISION_DETECTION_POLYGON_H__
 
 #include "collision_detection_type.h"
-#include "collision_detection_vec2.h "
+#include "collision_detection_vec2.h"
 #include "collision_detection_distance.h"
 #include "collision_detection_transform.h"
 #ifdef __cplusplus
@@ -56,6 +56,7 @@ extern "C"
         input.useRadii = CD_FALSE;
         CD_DISTANCE_CACHE cache = {0};
         CD_DISTANCE_OUTPUT output = {0};
+        return ret;
     }
 
 #ifdef __cplusplus
