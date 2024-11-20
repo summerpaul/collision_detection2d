@@ -2,13 +2,12 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 11:09:22
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-15 16:53:15
+ * @Last Modified time: 2024-11-19 14:05:43
  */
 
 #ifndef __COLLISION_DETECTION_TYPE_H__
 #define __COLLISION_DETECTION_TYPE_H__
 #include "collision_detection_base.h"
-
 
 #define COLLISION_DETECTION_VERSION 24111313 // 当前版本号
 
@@ -28,5 +27,7 @@
 #define COLLISION_DETECTION_E_MEM_ALIGN 0x0001  // 内存对齐错误
 #define COLLISION_DETECTION_E_CALC_ERROR 0x0002 // 内存不足
 #define COLLISION_DETECTION_E_PARAM_NULL 0x0010 // 输入参数为空
+
+#define MAX_POLYGON_VERTICES 8
 
 #endif /* __COLLISION_DETECTION_TYPE_H__ */

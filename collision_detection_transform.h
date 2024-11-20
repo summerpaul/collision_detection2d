@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 15:20:49
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-15 11:18:00
+ * @Last Modified time: 2024-11-19 14:13:01
  */
 
 #ifndef __COLLISION_DETECTION_TRANSFORM_H__
@@ -27,6 +27,8 @@ extern "C"
         CD_VEC2 p; // 平移量
         CD_ROT q;  // 旋转量
     } CD_TRANSFORM;
+
+    static const CD_TRANSFORM TRANSFORM_IDENTITY = {{0.0f, 0.0f}, {1.0f, 0.0f}};
 
     /**
      * @brief 通过角度计算旋转量
@@ -214,8 +216,6 @@ extern "C"
         *result = atan2f(s, c);
         return ret;
     }
-
-
 
     /**
      * @brief 旋转一个向量
