@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-15 11:06:42
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-20 19:49:34
+ * @Last Modified time: 2024-11-22 16:32:28
  */
 
 #ifndef __COLLISION_DETECTION_AABB_H__
@@ -22,7 +22,7 @@ extern "C"
         CD_VEC2 upperBound; // 坐标轴最大值
     } CD_AABB;
 
-    CD_INLINE CD_RET cd_create_aabb(CD_VEC2 *center, CD_F32 length, CD_F32 width, CD_AABB *result)
+    CD_INLINE CD_RET cd_create_aabb(const CD_VEC2 *center, CD_F32 length, CD_F32 width, CD_AABB *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(center == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -32,7 +32,7 @@ extern "C"
         result->upperBound.y = center->y + width * 0.5f;
         return ret;
     }
-    CD_INLINE CD_RET cd_aabb_contains(CD_AABB *a, CD_AABB *b, CD_BOOL *result)
+    CD_INLINE CD_RET cd_aabb_contains(const CD_AABB *a, const CD_AABB *b, CD_BOOL *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -41,7 +41,7 @@ extern "C"
         return ret;
     }
 
-    CD_INLINE CD_RET cd_aabb_overlap(CD_AABB *a, CD_AABB *b, CD_BOOL *result)
+    CD_INLINE CD_RET cd_aabb_overlap(const CD_AABB *a, const CD_AABB *b, CD_BOOL *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -50,7 +50,7 @@ extern "C"
         return ret;
     }
 
-    CD_INLINE CD_RET cd_aabb_center(CD_AABB *a, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_aabb_center(const CD_AABB *a, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -59,7 +59,7 @@ extern "C"
         return ret;
     }
 
-    CD_INLINE CD_RET cd_aabb_union(CD_AABB *a, CD_AABB *b, CD_AABB *result)
+    CD_INLINE CD_RET cd_aabb_union(const CD_AABB *a, const CD_AABB *b, CD_AABB *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -70,7 +70,7 @@ extern "C"
         return ret;
     }
 
-    CD_INLINE CD_RET cd_is_point_in_aabb(CD_AABB *a, CD_VEC2 *point, CD_BOOL *result)
+    CD_INLINE CD_RET cd_is_point_in_aabb(const CD_AABB *a, const CD_VEC2 *point, CD_BOOL *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || point == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);

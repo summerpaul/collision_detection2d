@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 11:09:22
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-19 14:05:43
+ * @Last Modified time: 2024-11-22 16:38:54
  */
 
 #ifndef __COLLISION_DETECTION_TYPE_H__
@@ -27,6 +27,7 @@
 #define COLLISION_DETECTION_E_MEM_ALIGN 0x0001  // 内存对齐错误
 #define COLLISION_DETECTION_E_CALC_ERROR 0x0002 // 内存不足
 #define COLLISION_DETECTION_E_PARAM_NULL 0x0010 // 输入参数为空
+#define COLLISION_DETECTION_E_ZERO_NUM   0x0020 // 输入参数为空
 
 #define MAX_POLYGON_VERTICES 8
 

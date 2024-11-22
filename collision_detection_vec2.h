@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 13:51:36
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-15 21:27:11
+ * @Last Modified time: 2024-11-22 16:45:30
  */
 
 #ifndef __COLLISION_DETECTION_VEC2_H__
@@ -45,7 +45,7 @@ extern "C"
      * @param result 向量的长度
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_len(CD_VEC2 *v, CD_F32 *result)
+    CD_INLINE CD_RET cd_vec2_len(const CD_VEC2 *v, CD_F32 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(v == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -59,7 +59,7 @@ extern "C"
      * @param result 向量长度的平方
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_len_sqr(CD_VEC2 *v, CD_F32 *result)
+    CD_INLINE CD_RET cd_vec2_len_sqr(const CD_VEC2 *v, CD_F32 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(v == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -74,7 +74,7 @@ extern "C"
      * @param result 点积结果
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_dot(CD_VEC2 *a, CD_VEC2 *b, CD_F32 *result)
+    CD_INLINE CD_RET cd_vec2_dot(const CD_VEC2 *a, const CD_VEC2 *b, CD_F32 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -89,7 +89,7 @@ extern "C"
      * @param result 叉积结果
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_cross(CD_VEC2 *a, CD_VEC2 *b, CD_F32 *result)
+    CD_INLINE CD_RET cd_vec2_cross(const CD_VEC2 *a, const CD_VEC2 *b, CD_F32 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -103,7 +103,7 @@ extern "C"
      * @param result 向量朝向
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_heading(CD_VEC2 *v, CD_F32 *result)
+    CD_INLINE CD_RET cd_vec2_heading(const CD_VEC2 *v, CD_F32 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(v == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -117,7 +117,7 @@ extern "C"
      * @param result 向左的垂直向量
      * @return  ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_left_perp(CD_VEC2 *v, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_left_perp(const CD_VEC2 *v, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(v == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -132,7 +132,7 @@ extern "C"
      * @param result 向右的垂直向量
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_right_perp(CD_VEC2 *v, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_right_perp(const CD_VEC2 *v, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(v == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -148,7 +148,7 @@ extern "C"
      * @param result 向量a + 向量b
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_add(CD_VEC2 *a, CD_VEC2 *b, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_add(const CD_VEC2 *a, const CD_VEC2 *b, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -164,7 +164,7 @@ extern "C"
      * @param result 向量a - 向量b
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_sub(CD_VEC2 *a, CD_VEC2 *b, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_sub(const CD_VEC2 *a, const CD_VEC2 *b, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -179,7 +179,7 @@ extern "C"
      * @param result 向量的负数
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_neg(CD_VEC2 *a, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_neg(const CD_VEC2 *a, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -196,7 +196,7 @@ extern "C"
      * @param result  插值的结构
      * @return  ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_nlerp(CD_VEC2 *a, CD_VEC2 *b, CD_F32 t, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_nlerp(const CD_VEC2 *a, const CD_VEC2 *b, CD_F32 t, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -212,7 +212,7 @@ extern "C"
      * @param result 乘积结果
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_mul(CD_VEC2 *a, CD_VEC2 *b, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_mul(const CD_VEC2 *a, const CD_VEC2 *b, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -228,7 +228,7 @@ extern "C"
      * @param result 缩放结果
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_scale(CD_VEC2 *a, CD_F32 scale, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_scale(const CD_VEC2 *a, CD_F32 scale, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -245,7 +245,7 @@ extern "C"
      * @param result
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_mul_add(CD_VEC2 *a, CD_F32 scale, CD_VEC2 *b, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_mul_add(const CD_VEC2 *a, CD_F32 scale, const CD_VEC2 *b, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -262,7 +262,7 @@ extern "C"
      * @param result
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_mul_sub(CD_VEC2 *a, CD_F32 scale, CD_VEC2 *b, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_mul_sub(const CD_VEC2 *a, CD_F32 scale, const CD_VEC2 *b, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -277,7 +277,7 @@ extern "C"
      * @param result 单位化结果
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_norm(CD_VEC2 *a, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_norm(const CD_VEC2 *a, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -301,7 +301,7 @@ extern "C"
      * @param result 绝对值向量
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_abs(CD_VEC2 *a, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_abs(const CD_VEC2 *a, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -317,7 +317,7 @@ extern "C"
      * @param result
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_max(CD_VEC2 *a, CD_VEC2 *b, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_max(const CD_VEC2 *a, const CD_VEC2 *b, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -333,7 +333,7 @@ extern "C"
      * @param result
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_min(CD_VEC2 *a, CD_VEC2 *b, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_min(const CD_VEC2 *a, const CD_VEC2 *b, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -350,7 +350,7 @@ extern "C"
      * @param result
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_clamp(CD_VEC2 *v, CD_VEC2 *a, CD_VEC2 *b, CD_VEC2 *result)
+    CD_INLINE CD_RET cd_vec2_clamp(const CD_VEC2 *v, const CD_VEC2 *a, const CD_VEC2 *b, CD_VEC2 *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(v == CD_NULL || a == CD_NULL || b == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -366,7 +366,7 @@ extern "C"
      * @param result 两个点之间的距离
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_dis(CD_VEC2 *a, CD_VEC2 *b, CD_F32 *result)
+    CD_INLINE CD_RET cd_vec2_dis(const CD_VEC2 *a, const CD_VEC2 *b, CD_F32 *result)
     {
 
         CD_RET ret = CD_RET_OK;
@@ -384,7 +384,7 @@ extern "C"
      * @param result 两个点之间的距离平方
      * @return ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_dis_sqr(CD_VEC2 *a, CD_VEC2 *b, CD_F32 *result)
+    CD_INLINE CD_RET cd_vec2_dis_sqr(const CD_VEC2 *a, const CD_VEC2 *b, CD_F32 *result)
     {
 
         CD_RET ret = CD_RET_OK;
@@ -402,7 +402,7 @@ extern "C"
      * @param result_v 单位向量
      * @return  ok / 参数异常
      */
-    CD_INLINE CD_RET cd_vec2_get_len_and_norm(CD_VEC2 *a, CD_F32 *result_len, CD_VEC2 *result_v)
+    CD_INLINE CD_RET cd_vec2_get_len_and_norm(const CD_VEC2 *a, CD_F32 *result_len, CD_VEC2 *result_v)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(a == NULL || result_len == NULL || result_v == NULL, COLLISION_DETECTION_E_PARAM_NULL);
