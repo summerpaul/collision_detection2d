@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 15:20:49
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-19 14:13:01
+ * @Last Modified time: 2024-11-26 11:18:44
  */
 
 #ifndef __COLLISION_DETECTION_TRANSFORM_H__
@@ -51,11 +51,28 @@ extern "C"
      * @param angle 角度
      * @return  ok / 参数异常
      */
-    CD_INLINE CD_RET cd_rot_to_angle(CD_ROT *q, CD_F32 *angle)
+    CD_INLINE CD_RET cd_rot_to_angle(const CD_ROT *q, CD_F32 *angle)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(q == CD_NULL || angle == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
         *angle = atan2f(q->s, q->c);
+        return ret;
+    }
+
+    /**
+    * @brief 归一化旋转量
+    * @param q 归一化前的旋转量
+    * @param result 归一化后的旋转量
+    * @return ok / 参数异常 
+    */
+    CD_INLINE CD_RET cd_rot_norm(const CD_ROT *q, CD_ROT *result)
+    {
+        CD_RET ret = CD_RET_OK;
+        CD_CHECK_ERROR(q == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
+        CD_F32 mag = sqrtf(q->c * q->c + q->s * q->s);
+        CD_F32 invMag = mag > 0.0 ? 1.0f / mag : 0.0f;
+        result->c = q->c * invMag;
+        result->s = q->s * invMag;
         return ret;
     }
 
@@ -98,7 +115,7 @@ extern "C"
      * @return ok / 参数异常
      */
 
-    CD_INLINE CD_RET cd_rot_norm(CD_ROT *q, CD_ROT *result)
+    CD_INLINE CD_RET cd_rot_norm(const CD_ROT *q, CD_ROT *result)
     {
         CD_RET ret = CD_RET_OK;
         CD_CHECK_ERROR(q == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
@@ -106,6 +123,21 @@ extern "C"
         CD_F32 invMag = mag > 0.0 ? 1.0f / mag : 0.0f;
         result->c = q->c * invMag;
         result->s = q->s * invMag;
+        return ret;
+    }
+
+    /**
+ * @brief 判断旋转量是否已经归一化
+ * @param q 旋转量
+ * @param result 是否归一化
+ * @return ok / 参数异常 
+ */
+    CD_INLINE CD_RET cd_rot_is_norm(const CD_ROT *q, CD_BOOL *result)
+    {
+        CD_RET ret = CD_RET_OK;
+        CD_CHECK_ERROR(q == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
+        CD_F32 qq = q->s * q->s + q->c * q->c;
+        *result = (1.0f - 0.0006f < qq && qq < 1.0f + 0.0006f);
         return ret;
     }
 

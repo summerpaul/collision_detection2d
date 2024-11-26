@@ -14,21 +14,21 @@ extern "C"
 {
 #endif
 
-#define CD_ANG2RAD(x) ((x) * 0.017453293f)         // 角度转弧度，转完后float型
-#define CD_RAD2ANG(x) ((x) * 57.29578f)            // 弧度转角度，转完后float型
-#define CD_ANG2RAD_D(x) ((x) * 0.0174532925199433) // 角度转弧度，转完后double型
-#define CD_RAD2ANG_D(x) ((x) * 57.29577951308233)  // 弧度转角度，转完后double型
-#define CD_M2MM(x) ((CD_S32)((x) * 1000))          // 米转毫米，转完后变成整型
-#define CD_MM2M(x) ((x) * 0.001f)                  // 毫米转米，转完后变成浮点型
-#define CD_S2MS(x) ((CD_S32)((x) * 1000))          // 秒转毫秒，转完后变成整型
-#define CD_MS2S(x) ((x) * 0.001f)                  // 毫秒转秒，转完后变成浮点型
-#define CD_RAD2MRAD(x) ((CD_S32)((x) * 1000))      // 弧度转毫弧度，转完后变成整型
-#define CD_MRAD2RAD(x) ((x) * 0.001f)              // 毫弧度转弧度，转完后变成浮点型
-#define CD_KPH2MPS(x) ((x) * 0.27778f)             // 公里每小时转米每秒
-#define CD_MPS2KPH(x) ((x) * 3.6f)                 // 米每秒转公里每小时
+#define CD_ANG2RAD(x) ((x)*0.017453293f)         // 角度转弧度，转完后float型
+#define CD_RAD2ANG(x) ((x)*57.29578f)            // 弧度转角度，转完后float型
+#define CD_ANG2RAD_D(x) ((x)*0.0174532925199433) // 角度转弧度，转完后double型
+#define CD_RAD2ANG_D(x) ((x)*57.29577951308233)  // 弧度转角度，转完后double型
+#define CD_M2MM(x) ((CD_S32)((x)*1000))          // 米转毫米，转完后变成整型
+#define CD_MM2M(x) ((x)*0.001f)                  // 毫米转米，转完后变成浮点型
+#define CD_S2MS(x) ((CD_S32)((x)*1000))          // 秒转毫秒，转完后变成整型
+#define CD_MS2S(x) ((x)*0.001f)                  // 毫秒转秒，转完后变成浮点型
+#define CD_RAD2MRAD(x) ((CD_S32)((x)*1000))      // 弧度转毫弧度，转完后变成整型
+#define CD_MRAD2RAD(x) ((x)*0.001f)              // 毫弧度转弧度，转完后变成浮点型
+#define CD_KPH2MPS(x) ((x)*0.27778f)             // 公里每小时转米每秒
+#define CD_MPS2KPH(x) ((x)*3.6f)                 // 米每秒转公里每小时
 
-#define CD_MUL_THO(x) ((CD_S32)((x) * 1000)) // 放大1000倍，转为整形
-#define CD_DIV_THO(x) ((x) * 0.001f)         // 缩小1000倍，转为浮点
+#define CD_MUL_THO(x) ((CD_S32)((x)*1000)) // 放大1000倍，转为整形
+#define CD_DIV_THO(x) ((x)*0.001f)         // 缩小1000倍，转为浮点
 
 #define CD_POW_2_31 (2147483648)
 #define CD_LL_D2I(ll) ((CD_S32)((ll > (180 - CD_EPS_D) ? (180 - CD_EPS_D) : ll) * CD_POW_2_31 / 180))
