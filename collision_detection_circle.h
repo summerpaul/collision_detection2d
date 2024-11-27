@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-15 11:08:40
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-22 16:46:19
+ * @Last Modified time: 2024-11-27 16:16:25
  */
 
 #ifndef __COLLISION_DETECTION_CIRCLE_H__
@@ -25,6 +25,13 @@ extern "C"
         CD_F32 radius;  // 半径
     } CD_CIRCLE;
 
+    /**
+ * @brief 判断点是否在圆内
+ * @param point 点
+ * @param circle 圆
+ * @param result 1 在圆内，0不在圆内
+ * @return ok / 参数异常   
+ */
     CD_INLINE CD_RET cd_point_in_circle(const CD_VEC2 *point, const CD_CIRCLE *circle, CD_BOOL *result)
     {
         CD_RET ret = CD_RET_OK;
@@ -36,6 +43,12 @@ extern "C"
         return ret;
     }
 
+    /**
+ * @brief 将圆转化成aabb
+ * @param circle 圆
+ * @param result aabb
+ * @return ok / 参数异常   
+ */
     CD_INLINE CD_RET cd_circle_to_aabb(const CD_CIRCLE *circle, CD_AABB *result)
     {
         CD_RET ret = CD_RET_OK;

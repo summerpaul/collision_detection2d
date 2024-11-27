@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 13:51:36
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-22 16:45:30
+ * @Last Modified time: 2024-11-27 10:22:57
  */
 
 #ifndef __COLLISION_DETECTION_VEC2_H__
@@ -411,6 +411,21 @@ extern "C"
         ret = cd_vec2_norm(a, result_v);
         CD_CHECK_ERROR(ret != CD_RET_OK, ret);
 
+        return ret;
+    }
+
+    CD_INLINE CD_RET cd_points_cross(const CD_VEC2 *start_point, const CD_VEC2 *end_point_1, const CD_VEC2 *end_point_2, CD_F32 *result)
+    {
+        CD_RET ret = CD_RET_OK;
+        CD_CHECK_ERROR(start_point == CD_NULL || end_point_1 == CD_NULL || end_point_2 == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
+        CD_VEC2 vec1;
+        ret = cd_vec2_sub(end_point_1, start_point, &vec1);
+        CD_CHECK_ERROR(ret != CD_RET_OK, ret);
+        CD_VEC2 vec2;
+        ret = cd_vec2_sub(end_point_2, start_point, &vec2);
+        CD_CHECK_ERROR(ret != CD_RET_OK, ret);
+        ret = cd_vec2_cross(&vec1, &vec2, result);
+        CD_CHECK_ERROR(ret != CD_RET_OK, ret);
         return ret;
     }
 

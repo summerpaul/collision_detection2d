@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-13 15:20:49
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-26 11:18:44
+ * @Last Modified time: 2024-11-26 19:37:08
  */
 
 #ifndef __COLLISION_DETECTION_TRANSFORM_H__
@@ -105,24 +105,6 @@ extern "C"
         CD_CHECK_ERROR(q == CD_NULL || r == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
         result->s = q->c * r->s - q->s * r->c;
         result->c = q->c * r->c + q->s * r->s;
-        return ret;
-    }
-
-    /**
-     * @brief 旋转量归一化
-     * @param q 旋转量
-     * @param result 归一化后的旋转量
-     * @return ok / 参数异常
-     */
-
-    CD_INLINE CD_RET cd_rot_norm(const CD_ROT *q, CD_ROT *result)
-    {
-        CD_RET ret = CD_RET_OK;
-        CD_CHECK_ERROR(q == CD_NULL || result == CD_NULL, COLLISION_DETECTION_E_PARAM_NULL);
-        CD_F32 mag = sqrtf(q->c * q->c + q->s * q->s);
-        CD_F32 invMag = mag > 0.0 ? 1.0f / mag : 0.0f;
-        result->c = q->c * invMag;
-        result->s = q->s * invMag;
         return ret;
     }
 

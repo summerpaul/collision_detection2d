@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-11-15 11:07:27
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-11-15 16:53:18
+ * @Last Modified time: 2024-11-26 20:33:44
  */
 
 #ifndef __COLLISION_DETECTION_MATH_H__
@@ -106,6 +106,11 @@ extern "C"
             angle -= 2.0f * CD_PI;
         }
         return angle;
+    }
+
+    CD_INLINE CD_BOOL cd_is_with_in(CD_F32 val, CD_F32 bound1, CD_F32 bound2)
+    {
+        return (val >= CD_MIN(bound1, bound2)) && (val <= CD_MAX(bound1, bound2));
     }
 
 #ifdef __cplusplus
